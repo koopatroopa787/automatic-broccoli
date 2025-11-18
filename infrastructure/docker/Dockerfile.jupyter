@@ -1,0 +1,28 @@
+FROM jupyter/scipy-notebook:latest
+
+USER root
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+USER jovyan
+
+# Install additional Python packages
+RUN pip install --no-cache-dir \
+    sqlalchemy \
+    psycopg2-binary \
+    pandas \
+    polars \
+    plotly \
+    seaborn \
+    scikit-learn \
+    xgboost \
+    lightgbm \
+    shap \
+    mlflow \
+    fastapi \
+    httpx
+
+WORKDIR /home/jovyan/work

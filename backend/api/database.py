@@ -12,7 +12,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.pool import NullPool
 from loguru import logger
 
-from api.config import settings
+from backend.api.config import settings
 
 # Create async engine
 engine = create_async_engine(
@@ -81,7 +81,7 @@ async def init_db() -> None:
     try:
         async with engine.begin() as conn:
             # Import all models here to ensure they're registered
-            from api.models import (  # noqa
+            from backend.api.models import (  # noqa
                 analytics_models,
                 data_quality_models,
                 etl_models,

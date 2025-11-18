@@ -12,14 +12,14 @@ from pydantic import BaseModel
 from sqlalchemy import func, select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api.database import get_db
-from api.models import (
+from backend.api.database import get_db
+from backend.api.models import (
     DimCustomer,
     DimProduct,
     FactSales,
     User,
 )
-from api.routers.auth import get_current_active_user
+from backend.api.routers.auth import get_current_active_user
 
 router = APIRouter()
 

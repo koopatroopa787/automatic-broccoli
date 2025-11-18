@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # PostgreSQL - Primary Data Warehouse
   postgres:
@@ -109,8 +107,8 @@ services:
   # Apache Airflow - Workflow Orchestration
   airflow-webserver:
     build:
-      context: ./backend
-      dockerfile: ../infrastructure/docker/Dockerfile.airflow
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.airflow
     container_name: analytics_airflow_webserver
     depends_on:
       - postgres
@@ -137,8 +135,8 @@ services:
 
   airflow-scheduler:
     build:
-      context: ./backend
-      dockerfile: ../infrastructure/docker/Dockerfile.airflow
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.airflow
     container_name: analytics_airflow_scheduler
     depends_on:
       - postgres
@@ -169,15 +167,15 @@ services:
       MLFLOW_S3_ENDPOINT_URL: http://minio:9000
     ports:
       - "5000:5000"
-    command: mlflow server --host 0.0.0.0 --backend-store-uri ${MLFLOW_BACKEND_STORE_URI} --default-artifact-root ${MLFLOW_DEFAULT_ARTIFACT_ROOT}
+    command: mlflow server --host 0.0.0.0 --backend-store-uri postgresql://${POSTGRES_USER:-analytics_user}:${POSTGRES_PASSWORD:-analytics_pass123}@postgres/${POSTGRES_DB:-analytics_db} --default-artifact-root s3://mlflow-artifacts
     networks:
       - analytics_network
 
   # FastAPI Backend
   api:
     build:
-      context: ./backend
-      dockerfile: ../infrastructure/docker/Dockerfile.api
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.api
     container_name: analytics_api
     depends_on:
       - postgres
@@ -191,8 +189,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
-    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+      - ./backend:/app/backend
+      - ./pyproject.toml:/app/pyproject.toml
+    command: uvicorn backend.api.main:app --host 0.0.0.0 --port 8000 --reload
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
@@ -204,8 +203,8 @@ services:
   # React Frontend
   frontend:
     build:
-      context: ./frontend
-      dockerfile: ../infrastructure/docker/Dockerfile.frontend
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.frontend
     container_name: analytics_frontend
     depends_on:
       - api
@@ -223,8 +222,8 @@ services:
   # Jupyter Lab - Data Science Notebooks
   jupyter:
     build:
-      context: ./backend
-      dockerfile: ../infrastructure/docker/Dockerfile.jupyter
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.jupyter
     container_name: analytics_jupyter
     depends_on:
       - postgres

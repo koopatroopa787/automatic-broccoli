@@ -14,7 +14,7 @@ from loguru import logger
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.types import ASGIApp
 
-from api.config import settings
+from backend.api.config import settings
 
 
 class RequestIDMiddleware(BaseHTTPMiddleware):

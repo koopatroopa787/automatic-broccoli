@@ -16,8 +16,8 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.config import settings
-from api.database import get_db
-from api.models import User, UserRole
+from backend.api.database import get_db
+from backend.api.models import User, UserRole
 
 router = APIRouter()
 

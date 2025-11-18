@@ -4,7 +4,7 @@ Database Models Package
 Exports all SQLAlchemy models for the application.
 """
 
-from api.models.analytics_models import (
+from backend.api.models.analytics_models import (
     Dashboard,
     DimCustomer,
     DimDate,
@@ -15,7 +15,7 @@ from api.models.analytics_models import (
     FactWebAnalytics,
     Query,
 )
-from api.models.data_quality_models import (
+from backend.api.models.data_quality_models import (
     CheckStatus,
     CheckType,
     DataAnomaly,
@@ -25,7 +25,7 @@ from api.models.data_quality_models import (
     DataQualityRule,
     Severity,
 )
-from api.models.etl_models import (
+from backend.api.models.etl_models import (
     DataLineage,
     DataSource,
     DataSourceType,
@@ -33,7 +33,7 @@ from api.models.etl_models import (
     PipelineExecution,
     PipelineStatus,
 )
-from api.models.ml_models import (
+from backend.api.models.ml_models import (
     FeatureStore,
     MLExperiment,
     MLModel,
@@ -41,7 +41,7 @@ from api.models.ml_models import (
     ModelType,
     Prediction,
 )
-from api.models.user_models import APIKey, Permission, Role, User, UserRole
+from backend.api.models.user_models import APIKey, Permission, Role, User, UserRole
 
 __all__ = [
     # User models

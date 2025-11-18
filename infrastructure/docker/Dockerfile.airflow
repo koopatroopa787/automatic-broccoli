@@ -23,6 +23,6 @@ RUN pip install --no-cache-dir \
     apache-airflow-providers-postgres
 
 # Copy DAGs
-COPY etl/airflow/dags /opt/airflow/dags
+COPY backend/etl/airflow/dags /opt/airflow/dags
 
 WORKDIR /opt/airflow

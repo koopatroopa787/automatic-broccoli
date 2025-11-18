@@ -15,8 +15,8 @@ from fastapi.responses import JSONResponse
 from prometheus_client import make_asgi_app
 from loguru import logger
 
-from api.config import settings
-from api.routers import (
+from backend.api.config import settings
+from backend.api.routers import (
     analytics,
     auth,
     dashboards,
@@ -27,8 +27,8 @@ from api.routers import (
     queries,
     reports,
 )
-from api.database import engine, init_db
-from api.middleware import (
+from backend.api.database import engine, init_db
+from backend.api.middleware import (
     LoggingMiddleware,
     RequestIDMiddleware,
     RateLimitMiddleware,

@@ -23,62 +23,62 @@ from backend.api.models.analytics_models import (
 
 # Sample data
 CUSTOMERS = [
-    {"customer_key": 1, "customer_id": "CUST001", "first_name": "John", "last_name": "Smith",
-     "email": "john.smith@email.com", "phone": "555-0101", "segment": "Premium", "city": "New York", "state": "NY"},
-    {"customer_key": 2, "customer_id": "CUST002", "first_name": "Emma", "last_name": "Johnson",
-     "email": "emma.j@email.com", "phone": "555-0102", "segment": "Standard", "city": "Los Angeles", "state": "CA"},
-    {"customer_key": 3, "customer_id": "CUST003", "first_name": "Michael", "last_name": "Brown",
-     "email": "m.brown@email.com", "phone": "555-0103", "segment": "Premium", "city": "Chicago", "state": "IL"},
-    {"customer_key": 4, "customer_id": "CUST004", "first_name": "Sarah", "last_name": "Davis",
-     "email": "sarah.d@email.com", "phone": "555-0104", "segment": "Standard", "city": "Houston", "state": "TX"},
-    {"customer_key": 5, "customer_id": "CUST005", "first_name": "James", "last_name": "Wilson",
-     "email": "j.wilson@email.com", "phone": "555-0105", "segment": "VIP", "city": "Phoenix", "state": "AZ"},
-    {"customer_key": 6, "customer_id": "CUST006", "first_name": "Lisa", "last_name": "Anderson",
-     "email": "lisa.a@email.com", "phone": "555-0106", "segment": "Premium", "city": "Philadelphia", "state": "PA"},
-    {"customer_key": 7, "customer_id": "CUST007", "first_name": "David", "last_name": "Martinez",
-     "email": "d.martinez@email.com", "phone": "555-0107", "segment": "Standard", "city": "San Antonio", "state": "TX"},
-    {"customer_key": 8, "customer_id": "CUST008", "first_name": "Jennifer", "last_name": "Garcia",
-     "email": "j.garcia@email.com", "phone": "555-0108", "segment": "VIP", "city": "San Diego", "state": "CA"},
-    {"customer_key": 9, "customer_id": "CUST009", "first_name": "Robert", "last_name": "Rodriguez",
-     "email": "r.rodriguez@email.com", "phone": "555-0109", "segment": "Premium", "city": "Dallas", "state": "TX"},
-    {"customer_key": 10, "customer_id": "CUST010", "first_name": "Maria", "last_name": "Hernandez",
-     "email": "m.hernandez@email.com", "phone": "555-0110", "segment": "Standard", "city": "San Jose", "state": "CA"},
+    {"customer_id": "CUST001", "customer_name": "John Smith", "email": "john.smith@email.com",
+     "phone": "555-0101", "segment": "Premium", "city": "New York", "state": "NY", "postal_code": "10001"},
+    {"customer_id": "CUST002", "customer_name": "Emma Johnson", "email": "emma.j@email.com",
+     "phone": "555-0102", "segment": "Standard", "city": "Los Angeles", "state": "CA", "postal_code": "90001"},
+    {"customer_id": "CUST003", "customer_name": "Michael Brown", "email": "m.brown@email.com",
+     "phone": "555-0103", "segment": "Premium", "city": "Chicago", "state": "IL", "postal_code": "60601"},
+    {"customer_id": "CUST004", "customer_name": "Sarah Davis", "email": "sarah.d@email.com",
+     "phone": "555-0104", "segment": "Standard", "city": "Houston", "state": "TX", "postal_code": "77001"},
+    {"customer_id": "CUST005", "customer_name": "James Wilson", "email": "j.wilson@email.com",
+     "phone": "555-0105", "segment": "VIP", "city": "Phoenix", "state": "AZ", "postal_code": "85001"},
+    {"customer_id": "CUST006", "customer_name": "Lisa Anderson", "email": "lisa.a@email.com",
+     "phone": "555-0106", "segment": "Premium", "city": "Philadelphia", "state": "PA", "postal_code": "19019"},
+    {"customer_id": "CUST007", "customer_name": "David Martinez", "email": "d.martinez@email.com",
+     "phone": "555-0107", "segment": "Standard", "city": "San Antonio", "state": "TX", "postal_code": "78201"},
+    {"customer_id": "CUST008", "customer_name": "Jennifer Garcia", "email": "j.garcia@email.com",
+     "phone": "555-0108", "segment": "VIP", "city": "San Diego", "state": "CA", "postal_code": "92101"},
+    {"customer_id": "CUST009", "customer_name": "Robert Rodriguez", "email": "r.rodriguez@email.com",
+     "phone": "555-0109", "segment": "Premium", "city": "Dallas", "state": "TX", "postal_code": "75201"},
+    {"customer_id": "CUST010", "customer_name": "Maria Hernandez", "email": "m.hernandez@email.com",
+     "phone": "555-0110", "segment": "Standard", "city": "San Jose", "state": "CA", "postal_code": "95101"},
 ]
 
 PRODUCTS = [
-    {"product_key": 1, "product_id": "PROD001", "name": "Laptop Pro 15", "category": "Electronics",
-     "subcategory": "Computers", "brand": "TechCorp", "unit_price": 1299.99, "cost": 850.00},
-    {"product_key": 2, "product_id": "PROD002", "name": "Wireless Mouse", "category": "Electronics",
-     "subcategory": "Accessories", "brand": "TechCorp", "unit_price": 29.99, "cost": 12.00},
-    {"product_key": 3, "product_id": "PROD003", "name": "Office Chair Pro", "category": "Furniture",
-     "subcategory": "Chairs", "brand": "ComfortPlus", "unit_price": 399.99, "cost": 200.00},
-    {"product_key": 4, "product_id": "PROD004", "name": "Standing Desk", "category": "Furniture",
-     "subcategory": "Desks", "brand": "ErgoWork", "unit_price": 599.99, "cost": 350.00},
-    {"product_key": 5, "product_id": "PROD005", "name": "USB-C Hub", "category": "Electronics",
-     "subcategory": "Accessories", "brand": "TechCorp", "unit_price": 49.99, "cost": 20.00},
-    {"product_key": 6, "product_id": "PROD006", "name": "Mechanical Keyboard", "category": "Electronics",
-     "subcategory": "Accessories", "brand": "TypeMaster", "unit_price": 129.99, "cost": 65.00},
-    {"product_key": 7, "product_id": "PROD007", "name": "27\" Monitor", "category": "Electronics",
-     "subcategory": "Displays", "brand": "ViewPro", "unit_price": 349.99, "cost": 180.00},
-    {"product_key": 8, "product_id": "PROD008", "name": "Desk Lamp LED", "category": "Furniture",
-     "subcategory": "Lighting", "brand": "BrightLife", "unit_price": 59.99, "cost": 25.00},
-    {"product_key": 9, "product_id": "PROD009", "name": "Webcam HD", "category": "Electronics",
-     "subcategory": "Accessories", "brand": "TechCorp", "unit_price": 89.99, "cost": 45.00},
-    {"product_key": 10, "product_id": "PROD010", "name": "Headphones Pro", "category": "Electronics",
-     "subcategory": "Audio", "brand": "SoundWave", "unit_price": 199.99, "cost": 100.00},
+    {"product_id": "PROD001", "name": "Laptop Pro 15", "sku": "LT-PRO-15", "category": "Electronics",
+     "subcategory": "Computers", "brand": "TechCorp", "unit_price": 1299.99, "unit_cost": 850.00},
+    {"product_id": "PROD002", "name": "Wireless Mouse", "sku": "MS-WRL-01", "category": "Electronics",
+     "subcategory": "Accessories", "brand": "TechCorp", "unit_price": 29.99, "unit_cost": 12.00},
+    {"product_id": "PROD003", "name": "Office Chair Pro", "sku": "CH-OFC-PR", "category": "Furniture",
+     "subcategory": "Chairs", "brand": "ComfortPlus", "unit_price": 399.99, "unit_cost": 200.00},
+    {"product_id": "PROD004", "name": "Standing Desk", "sku": "DK-STD-01", "category": "Furniture",
+     "subcategory": "Desks", "brand": "ErgoWork", "unit_price": 599.99, "unit_cost": 350.00},
+    {"product_id": "PROD005", "name": "USB-C Hub", "sku": "HB-USC-08", "category": "Electronics",
+     "subcategory": "Accessories", "brand": "TechCorp", "unit_price": 49.99, "unit_cost": 20.00},
+    {"product_id": "PROD006", "name": "Mechanical Keyboard", "sku": "KB-MCH-RGB", "category": "Electronics",
+     "subcategory": "Accessories", "brand": "TypeMaster", "unit_price": 129.99, "unit_cost": 65.00},
+    {"product_id": "PROD007", "name": "27\" Monitor", "sku": "MN-27-4K", "category": "Electronics",
+     "subcategory": "Displays", "brand": "ViewPro", "unit_price": 349.99, "unit_cost": 180.00},
+    {"product_id": "PROD008", "name": "Desk Lamp LED", "sku": "LP-LED-DSK", "category": "Furniture",
+     "subcategory": "Lighting", "brand": "BrightLife", "unit_price": 59.99, "unit_cost": 25.00},
+    {"product_id": "PROD009", "name": "Webcam HD", "sku": "WC-HD-PRO", "category": "Electronics",
+     "subcategory": "Accessories", "brand": "TechCorp", "unit_price": 89.99, "unit_cost": 45.00},
+    {"product_id": "PROD010", "name": "Headphones Pro", "sku": "HP-PRO-NC", "category": "Electronics",
+     "subcategory": "Audio", "brand": "SoundWave", "unit_price": 199.99, "unit_cost": 100.00},
 ]
 
 LOCATIONS = [
-    {"location_key": 1, "location_id": "LOC001", "store_name": "NYC Flagship", "city": "New York",
-     "state": "NY", "country": "USA", "region": "Northeast"},
-    {"location_key": 2, "location_id": "LOC002", "store_name": "LA Downtown", "city": "Los Angeles",
-     "state": "CA", "country": "USA", "region": "West"},
-    {"location_key": 3, "location_id": "LOC003", "store_name": "Chicago Central", "city": "Chicago",
-     "state": "IL", "country": "USA", "region": "Midwest"},
-    {"location_key": 4, "location_id": "LOC004", "store_name": "Houston Hub", "city": "Houston",
-     "state": "TX", "country": "USA", "region": "South"},
-    {"location_key": 5, "location_id": "LOC005", "store_name": "Phoenix Plaza", "city": "Phoenix",
-     "state": "AZ", "country": "USA", "region": "Southwest"},
+    {"location_id": "LOC001", "store_name": "NYC Flagship", "store_type": "Physical", "city": "New York",
+     "state": "NY", "postal_code": "10001", "country": "USA", "region": "Northeast"},
+    {"location_id": "LOC002", "store_name": "LA Downtown", "store_type": "Physical", "city": "Los Angeles",
+     "state": "CA", "postal_code": "90001", "country": "USA", "region": "West"},
+    {"location_id": "LOC003", "store_name": "Chicago Central", "store_type": "Physical", "city": "Chicago",
+     "state": "IL", "postal_code": "60601", "country": "USA", "region": "Midwest"},
+    {"location_id": "LOC004", "store_name": "Houston Hub", "store_type": "Physical", "city": "Houston",
+     "state": "TX", "postal_code": "77001", "country": "USA", "region": "South"},
+    {"location_id": "LOC005", "store_name": "Online Store", "store_type": "Online", "city": "Seattle",
+     "state": "WA", "postal_code": "98101", "country": "USA", "region": "West"},
 ]
 
 
@@ -86,20 +86,28 @@ async def load_date_dimension(session: AsyncSession, start_date: datetime, days:
     """Load date dimension with calendar attributes."""
     print(f"Loading {days} days into date dimension...")
 
+    month_names = ['January', 'February', 'March', 'April', 'May', 'June',
+                   'July', 'August', 'September', 'October', 'November', 'December']
+    day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
     dates = []
     for i in range(days):
         date = start_date + timedelta(days=i)
         dim_date = DimDate(
-            date_key=int(date.strftime("%Y%m%d")),
-            date=date.date(),
+            date_id=int(date.strftime("%Y%m%d")),
+            full_date=date,
             day=date.day,
             month=date.month,
             year=date.year,
             quarter=(date.month - 1) // 3 + 1,
-            day_of_week=date.strftime("%A"),
+            day_of_week=date.weekday(),
+            day_name=day_names[date.weekday()],
+            month_name=month_names[date.month - 1],
             week_of_year=date.isocalendar()[1],
             is_weekend=(date.weekday() >= 5),
-            is_holiday=False  # Simplified
+            is_holiday=False,  # Simplified
+            fiscal_year=date.year if date.month >= 4 else date.year - 1,
+            fiscal_quarter=((date.month - 4) % 12) // 3 + 1
         )
         dates.append(dim_date)
 
@@ -112,21 +120,24 @@ async def load_customers(session: AsyncSession):
     """Load customer dimension."""
     print("Loading customers...")
 
+    tier_map = {"VIP": "High", "Premium": "Medium", "Standard": "Low"}
+
     customers = []
     for cust_data in CUSTOMERS:
         customer = DimCustomer(
-            customer_key=cust_data["customer_key"],
             customer_id=cust_data["customer_id"],
-            first_name=cust_data["first_name"],
-            last_name=cust_data["last_name"],
+            customer_name=cust_data["customer_name"],
             email=cust_data["email"],
             phone=cust_data["phone"],
-            segment=cust_data["segment"],
+            customer_segment=cust_data["segment"],
+            lifetime_value_tier=tier_map[cust_data["segment"]],
             city=cust_data["city"],
             state=cust_data["state"],
+            postal_code=cust_data["postal_code"],
             country="USA",
-            effective_date=datetime.utcnow().date(),
-            is_current=True
+            effective_date=datetime.utcnow(),
+            is_current=True,
+            version=1
         )
         customers.append(customer)
 
@@ -142,14 +153,17 @@ async def load_products(session: AsyncSession):
     products = []
     for prod_data in PRODUCTS:
         product = DimProduct(
-            product_key=prod_data["product_key"],
             product_id=prod_data["product_id"],
-            name=prod_data["name"],
+            product_name=prod_data["name"],
+            sku=prod_data["sku"],
             category=prod_data["category"],
             subcategory=prod_data["subcategory"],
             brand=prod_data["brand"],
+            supplier=f"{prod_data['brand']} Manufacturing",
             unit_price=prod_data["unit_price"],
-            cost=prod_data["cost"]
+            unit_cost=prod_data["unit_cost"],
+            description=f"High-quality {prod_data['name']}",
+            is_active=True
         )
         products.append(product)
 
@@ -165,13 +179,18 @@ async def load_locations(session: AsyncSession):
     locations = []
     for loc_data in LOCATIONS:
         location = DimLocation(
-            location_key=loc_data["location_key"],
             location_id=loc_data["location_id"],
             store_name=loc_data["store_name"],
+            store_type=loc_data["store_type"],
             city=loc_data["city"],
             state=loc_data["state"],
+            postal_code=loc_data["postal_code"],
             country=loc_data["country"],
-            region=loc_data["region"]
+            region=loc_data["region"],
+            latitude=None,  # Could add real coordinates
+            longitude=None,
+            opened_date=datetime.utcnow() - timedelta(days=365),
+            is_active=True
         )
         locations.append(location)
 
@@ -202,13 +221,17 @@ async def load_sales_facts(session: AsyncSession, start_date: datetime, days: in
             quantity = random.randint(1, 5)
             unit_price = product["unit_price"]
 
-            # Add some price variation
-            if random.random() < 0.1:  # 10% chance of discount
-                unit_price *= random.uniform(0.8, 0.95)
+            # Add some price variation (discounts)
+            discount_pct = 0
+            if random.random() < 0.15:  # 15% chance of discount
+                discount_pct = random.uniform(0.05, 0.20)
 
-            sales_amount = round(quantity * unit_price, 2)
-            cost_amount = round(quantity * product["cost"], 2)
-            profit_amount = round(sales_amount - cost_amount, 2)
+            discount_amount = round(quantity * unit_price * discount_pct, 2)
+            subtotal = round(quantity * unit_price - discount_amount, 2)
+            tax_amount = round(subtotal * 0.08, 2)  # 8% tax
+            total_amount = round(subtotal + tax_amount, 2)
+            cost_amount = round(quantity * product["unit_cost"], 2)
+            profit_amount = round(total_amount - cost_amount, 2)
 
             sale = FactSales(
                 transaction_id=f"TXN{transaction_id:06d}",
@@ -218,7 +241,9 @@ async def load_sales_facts(session: AsyncSession, start_date: datetime, days: in
                 location_key=location_key,
                 quantity=quantity,
                 unit_price=unit_price,
-                sales_amount=sales_amount,
+                discount_amount=discount_amount,
+                tax_amount=tax_amount,
+                total_amount=total_amount,
                 cost_amount=cost_amount,
                 profit_amount=profit_amount
             )
@@ -228,6 +253,8 @@ async def load_sales_facts(session: AsyncSession, start_date: datetime, days: in
     session.add_all(sales)
     await session.commit()
     print(f"✓ Loaded {len(sales)} sales transactions")
+    print(f"   Total revenue: ${sum(s.total_amount for s in sales):,.2f}")
+    print(f"   Total profit: ${sum(s.profit_amount for s in sales):,.2f}")
 
 
 async def main():

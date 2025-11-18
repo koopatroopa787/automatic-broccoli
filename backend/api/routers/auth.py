@@ -15,7 +15,7 @@ from pydantic import BaseModel, EmailStr
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api.config import settings
+from backend.api.config import settings
 from backend.api.database import get_db
 from backend.api.models import User, UserRole
 

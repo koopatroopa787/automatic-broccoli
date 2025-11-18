@@ -1,6 +1,6 @@
 """API Routers Package"""
 
-from api.routers import (
+from backend.api.routers import (
     analytics,
     auth,
     dashboards,

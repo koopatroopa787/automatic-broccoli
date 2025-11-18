@@ -22,7 +22,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from sqlalchemy.dialects.postgresql import JSONB
 
-from api.database import Base
+from backend.api.database import Base
 
 
 class DataSourceType(str, PyEnum):

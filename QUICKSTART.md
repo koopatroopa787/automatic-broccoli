@@ -98,6 +98,7 @@ docker-compose up -d
 | **Grafana** | http://localhost:3001 | admin / admin |
 | **Jupyter** | http://localhost:8888 | token: analytics123 |
 | **MinIO Console** | http://localhost:9001 | minioadmin / minioadmin123 |
+| **MinIO API** | http://localhost:9002 | - |
 | **Prometheus** | http://localhost:9090 | - |
 
 ### Check Service Health

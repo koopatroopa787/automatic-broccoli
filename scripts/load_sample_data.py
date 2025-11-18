@@ -15,7 +15,7 @@ import random
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from sqlalchemy.ext.asyncio import AsyncSession
-from backend.api.database import get_session_context
+from backend.api.database import async_session_maker
 from backend.api.models.analytics_models import (
     DimDate, DimCustomer, DimProduct, DimLocation, FactSales
 )
@@ -244,7 +244,7 @@ async def main():
     print()
 
     try:
-        async with get_session_context() as session:
+        async with async_session_maker() as session:
             # Load dimensions first (required for fact table foreign keys)
             start_date = datetime.utcnow() - timedelta(days=365)
             await load_date_dimension(session, start_date, days=365)
